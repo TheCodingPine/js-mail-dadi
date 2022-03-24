@@ -6,6 +6,9 @@ let input = prompt ("Inserisci la tua e-mail")
 input = input.toLowerCase(); //le email non sono case sensitive!
 console.log("Tentativo di accesso da parte di", input);
 
+
+//dichiariamo la nuova mail
+let newUser;
 //input è nella array utentiValidi?
 //let conferma = false;
 //dichiaro ora il filtro, così posso usarlo in tutto il codice
@@ -22,7 +25,16 @@ for (let filtro=0; filtro < utentiValidi.length; filtro++) {
     } else if (filtro == utentiValidi.length-1) { //e solo se quindi ha fatto tutto il giro dell'array
         console.log(input,"non è abilitato");
         alert ("La mail inserita non é valida");
+        alert ("Vuoi registrati?")
+        newUser = prompt ("Inserisci la mail con la quale ti vuoi registrare");
+        newUser = newUser.toLowerCase();
+        utentiValidi.push(newUser);
+        console.log("Aggiunto", newUser , "alla lista utenti validi");
         filtro = 0; // resetto per nuovi tentativi
+            //dentro, printo la nuova lista
+            for (let filtro=0; filtro < utentiValidi.length; filtro++)  {
+                console.log(utentiValidi[filtro]);
+            }
         break; //uscita anticipata dal loop per evitare enne messaggi di errore
         }
 }
