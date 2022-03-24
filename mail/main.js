@@ -9,8 +9,9 @@ console.log("Tentativo di accesso da parte di", input);
 let conferma;
 
 for (let filtro=0; filtro < utentiValidi.length; filtro++) {
-    if (utentiValidi[filtro] == input) {conferma=true;
-    }
+    if (utentiValidi[filtro] == input) {
+        conferma=true;
+        alert ("Benvenuto", utentiValidi[1]);
+        console.log(utentiValidi[filtro],"è abilitato");
+    } else {alert ("La mail inserita non  valida");}
 }
-
-alert ("La mail inserita non  valida");
