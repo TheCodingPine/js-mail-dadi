@@ -3,6 +3,7 @@ const utentiValidi = ["matteo@gmail.com", "fabio@gmail.com", "pietro@gmail.com",
 console.log("Carico lista utenti autorizzati");
 
 let input = prompt ("Inserisci la tua e-mail")
+input = input.toLowerCase(); //le email non sono case sensitive!
 console.log("Tentativo di accesso da parte di", input);
 
 //input è nella array utentiValidi?
