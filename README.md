@@ -17,8 +17,7 @@ console.log della mail parsata
 
 let login;
 filtriamo le mail.
-if mail = prompt, login= true & alert
-            else, login= false & alert
+controlliamo l'array se è presente la mai
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

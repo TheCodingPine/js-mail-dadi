@@ -1,5 +1,5 @@
 //la mia array di email
-const utentiValidi = ["matteo@gmail.com", "fabio@gmail.com", "pietro@gmail.com", "anna@gmail.com"];
+let utentiValidi = ["matteo@gmail.com", "fabio@gmail.com", "pietro@gmail.com", "anna@gmail.com"]; //più corretto let, const funziona comunque
 console.log("Carico lista utenti autorizzati");
 
 let input = prompt ("Inserisci la tua e-mail")
@@ -10,31 +10,29 @@ console.log("Tentativo di accesso da parte di", input);
 //dichiariamo la nuova mail
 let newUser;
 //input è nella array utentiValidi?
-//let conferma = false;
+let trovato = false;
 //dichiaro ora il filtro, così posso usarlo in tutto il codice
-let filtro=0;
+//   let i=0;
 
-for (let filtro=0; filtro < utentiValidi.length; filtro++) {
-    if (utentiValidi[filtro] == input) {
-        //conferma=true;
-        alert ("Benvenuto", utentiValidi[filtro]);
-        console.log(utentiValidi[filtro],"è abilitato");
-        document.getElementById("output").innerHTML = utentiValidi[filtro];
-        filtro = 0; //resetto il filtro per evitare problemi
+for (let i=0; i < utentiValidi.length; i++) {
+    if (utentiValidi[i] == input) {
+        trovato=true;
         break; //uscita anticipata dal loop
-    } else if (filtro == utentiValidi.length-1) { //e solo se quindi ha fatto tutto il giro dell'array
-        console.log(input,"non è abilitato");
-        alert ("La mail inserita non é valida");
-        alert ("Vuoi registrati?")
-        newUser = prompt ("Inserisci la mail con la quale ti vuoi registrare");
-        newUser = newUser.toLowerCase();
-        utentiValidi.push(newUser);
-        console.log("Aggiunto", newUser , "alla lista utenti validi");
-        filtro = 0; // resetto per nuovi tentativi
-            //dentro, printo la nuova lista
-            for (let filtro=0; filtro < utentiValidi.length; filtro++)  {
-                console.log(utentiValidi[filtro]);
-            }
-        break; //uscita anticipata dal loop per evitare enne messaggi di errore
-        }
+    }
+}
+
+if(trovato) {
+    alert("Benvenuto" + utentiValidi[i]);
+    console.log(utentiValidi[i] +"è abilitato");
+    document.getElementById("output").innerHTML = utentiValidi[i];
+}else {
+    //questo è il caso in cui non ho trovato l'utente
+    console.log(input,"non è abilitato");
+    alert("La mail inserita non é valida");
+    let vuoleRegistrarsi = confirm("Vuoi registrati?");
+    if (vuoleRegistrarsi) {
+        utentiValidi.push(input);
+        console.log("Aggiunto", input , "alla lista utenti validi");
+        console.log(utentiValidi);
+    }
 }
